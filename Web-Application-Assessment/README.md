@@ -480,8 +480,8 @@ injecting malicious bio content.
 **PoCs**
 
   -----------------------------------------------------------------------
-  ```
-  CSRF test
+  ```html
+  //CSRF test
   <!DOCTYPE html>
   <html>
   <head><title>CSRF Pure PoC</title></head>
@@ -500,8 +500,8 @@ injecting malicious bio content.
   </html>
 ```
   -----------------------------------------------------------------------
-  ```
-  CSRF chained with XSS
+  ```html
+  //CSRF chained with XSS
   <!DOCTYPE html>
   <html>
   <body>
@@ -516,8 +516,8 @@ injecting malicious bio content.
   </html>
 ```
   -----------------------------------------------------------------------
- ```
-  Silent Version
+ ```html
+  //Silent Version
   <!DOCTYPE html>
   <html>
   <head>
