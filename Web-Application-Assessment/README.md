@@ -1,3 +1,9 @@
+<div style="text-align: center;">
+
+# CTF – Web Assessment Report
+
+</div>
+
 **Candidate Name:** \[AggroSec\]
 
 **Email:** \[REDACTED_EMAIL\]
