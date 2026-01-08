@@ -1,4 +1,4 @@
-<center> # CTF Interview Challenge – Web Assessment Report </center>
+# CTF Interview Challenge – Web Assessment Report
 
 **Candidate Name:** \[AggroSec\]
 
