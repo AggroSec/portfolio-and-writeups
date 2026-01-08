@@ -238,9 +238,7 @@ onmouseover).
 **Example HTTP Request**
 
   --------------------------------------------------------------------------
-  ```GET
-  /search?search_term=%22+onmouseover%3Dalert%28document.domain%29+x%3D%22
-  HTTP/2
+  ```GET /search?search_term=%22+onmouseover%3Dalert%28document.domain%29+x%3D%22 HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
@@ -312,8 +310,8 @@ Error messages leak the tool name and version.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /pdf HTTP/2
-  
+  ```
+  POST /pdf HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
@@ -415,7 +413,8 @@ enabling arbitrary command execution as the nobody user.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /pdf HTTP/2
+  ```
+  POST /pdf HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
