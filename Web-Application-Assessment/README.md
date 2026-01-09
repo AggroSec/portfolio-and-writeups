@@ -401,11 +401,11 @@ enabling arbitrary command execution as the nobody user.
       if "cmd" in request.args:
           cmd = request.args["cmd"]
           log_alert("Command Injection", cmd)
-      try:
-          output = run_as_nobody(cmd).decode()
-      except subprocess.CalledProcessError as e:
-          output = f"Command failed: {e}"
-          return render_template("admin.html", output=output)
+          try:
+              output = run_as_nobody(cmd).decode()
+          except subprocess.CalledProcessError as e:
+              output = f"Command failed: {e}"
+              return render_template("admin.html", output=output)
       return render_template("admin.html", output="")
 ```
   -----------------------------------------------------------------------
