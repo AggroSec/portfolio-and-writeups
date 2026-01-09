@@ -1,5 +1,7 @@
 # CTF Interview Challenge – Web Assessment Report
 
+**Note:** see the pdf for as close to the orginal report as possible with document formatting. this markdown might have weird formatting as I converted the document to markdown. I tried to make sure everything was fixed.
+
 **Candidate Name:** \[AggroSec\]
 
 **Email:** \[REDACTED_EMAIL\]
