@@ -25,7 +25,7 @@ All reports are sanitized for public sharing (e.g., redacted sensitive details, 
 Reports are based on real assessments/CTFs but fully sanitized:
 - Company/target identifiers are replaced with redacted text
 - Personal information redacted
-- Original screenshots removed to protect from accidental disclosure
+- Original screenshots removed to protect from accidental disclosure on reports. (CTF/machine writeups should still have them as I will sanitize as I take screenshots)
 Feedback, suggestions, or collaboration ideas welcome!
 
 ---
